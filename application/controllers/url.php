@@ -17,7 +17,7 @@ class Url extends CI_Controller {
 			$url = $this->input->post('url');
 			$this->db->insert('urls',['url'=>$url]);
 			$id = $this->db->insert_id();
-			$short_url = site_url("url/connect/$id");
+			$short_url = base_url("url/connect/$id");
 			$this->db->where('id',$id)
 			         ->update('urls',['short_url'=>$short_url]);
 			$this->session->set_flashdata('short',$short_url);
